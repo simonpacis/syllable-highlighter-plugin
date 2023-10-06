@@ -1,6 +1,19 @@
-# Obsidian Sample Plugin
+# Syllable Highlighter Plugin 
 
-This is a sample plugin for Obsidian (https://obsidian.md).
+This is a plugin for Obsidian.
+
+When enabled, it highlights syllables of words using the following rules:
+
+- If word has 1-2 syllables:
+    - If word length is > 7: highlight first three letters
+    - If word length is > 3 & < 7: highlight first two letters
+    - If word length is <= 3: highlight first one letter
+- If word has 3 syllables or greater:
+    - If word length is < 12: highlight first four letters
+    - If word length is >= 12: highlight first five letters
+
+
+<img width="1680" alt="Screenshot 2023-10-06 at 8 11 11 AM" src="https://github.com/nothingislost/obsidian-cm6-attributes/assets/7118482/bdc681ac-cb28-4aec-a668-b6518e7bd963">
 
 This project uses Typescript to provide type checking and documentation.
 The repo depends on the latest plugin API (obsidian.d.ts) in Typescript Definition format, which contains TSDoc comments describing what it does.
@@ -18,12 +31,15 @@ This sample plugin demonstrates some of the basic functionality the plugin API c
 
 Quick starting guide for new plugin devs:
 
-- Check if [someone already developed a plugin for what you want](https://obsidian.md/plugins)! There might be an existing plugin similar enough that you can partner up with.
+- Check if [someone already developed a plugin for what you want](https://obsidian.md/plugins)!
+There might be an existing plugin similar enough that you can partner up with.
 - Make a copy of this repo as a template with the "Use this template" button (login to GitHub if you don't see it).
-- Clone your repo to a local development folder. For convenience, you can place this folder in your `.obsidian/plugins/your-plugin-name` folder.
+- Clone your repo to a local development folder.
+For convenience, you can place this folder in your `.obsidian/plugins/your-plugin-name` folder.
 - Install NodeJS, then run `npm i` in the command line under your repo folder.
 - Run `npm run dev` to compile your plugin from `main.ts` to `main.js`.
-- Make changes to `main.ts` (or create new `.ts` files). Those changes should be automatically compiled into `main.js`.
+- Make changes to `main.ts` (or create new `.ts` files).
+Those changes should be automatically compiled into `main.js`.
 - Reload Obsidian to load the new version of your plugin.
 - Enable plugin in settings window.
 - For updates to the Obsidian API run `npm update` in the command line under your repo folder.
@@ -32,8 +48,11 @@ Quick starting guide for new plugin devs:
 
 - Update your `manifest.json` with your new version number, such as `1.0.1`, and the minimum Obsidian version required for your latest release.
 - Update your `versions.json` file with `"new-plugin-version": "minimum-obsidian-version"` so older versions of Obsidian can download an older version of your plugin that's compatible.
-- Create new GitHub release using your new version number as the "Tag version". Use the exact version number, don't include a prefix `v`. See here for an example: https://github.com/obsidianmd/obsidian-sample-plugin/releases
-- Upload the files `manifest.json`, `main.js`, `styles.css` as binary attachments. Note: The manifest.json file must be in two places, first the root path of your repository and also in the release.
+- Create new GitHub release using your new version number as the "Tag version".
+Use the exact version number, don't include a prefix `v`.
+See here for an example: https://github.com/obsidianmd/obsidian-sample-plugin/releases
+- Upload the files `manifest.json`, `main.js`, `styles.css` as binary attachments.
+Note: The manifest.json file must be in two places, first the root path of your repository and also in the release.
 - Publish the release.
 
 > You can simplify the version bump process by running `npm version patch`, `npm version minor` or `npm version major` after updating `minAppVersion` manually in `manifest.json`.
@@ -58,7 +77,9 @@ Quick starting guide for new plugin devs:
 - Copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
 
 ## Improve code quality with eslint (optional)
-- [ESLint](https://eslint.org/) is a tool that analyzes your code to quickly find problems. You can run ESLint against your plugin to find common bugs and ways to improve your code. 
+- [ESLint](https://eslint.org/) is a tool that analyzes your code to quickly find problems.
+You can run ESLint against your plugin to find common bugs and ways to improve your code.
+
 - To use eslint with this project, make sure to install eslint from terminal:
   - `npm install -g eslint`
 - To use eslint to analyze this project use this command:

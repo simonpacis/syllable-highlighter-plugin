@@ -1,25 +1,43 @@
 import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
+import { highlighterPlugin} from 'highlighterplugin';
 
 // Remember to rename these classes and interfaces!
 
-interface MyPluginSettings {
+interface SyllableSettings {
 	mySetting: string;
 }
 
-const DEFAULT_SETTINGS: MyPluginSettings = {
+const DEFAULT_SETTINGS: SyllableSettings = {
 	mySetting: 'default'
 }
 
-export default class MyPlugin extends Plugin {
-	settings: MyPluginSettings;
+export default class SyllableHighlighter extends Plugin {
+	settings: SyllableSettings;
+	enabled: boolean;
 
 	async onload() {
 		await this.loadSettings();
+		this.registerEditorExtension([highlighterPlugin]);
+		this.enabled = false;
 
 		// This creates an icon in the left ribbon.
-		const ribbonIconEl = this.addRibbonIcon('dice', 'Sample Plugin', (evt: MouseEvent) => {
+		const ribbonIconEl = this.addRibbonIcon('dice', 'Enagle Syllable Highlighting', (evt: MouseEvent) => {
 			// Called when the user clicks the icon.
-			new Notice('This is a notice!');
+			new Notice('Enabling syllable highlighting...');
+			if(this.enabled)
+			{
+				this.enabled = false;
+			} else 
+			{
+				this.enabled = true;
+			}
+			const markdownView = this.app.workspace.getActiveViewOfType(MarkdownView);
+			const editorView = markdownView.editor.cm as EditorView;
+			const plugin = editorView.plugin(highlighterPlugin);
+			if(plugin)
+				{
+					plugin.setEnabled(this.enabled, editorView);
+				}
 		});
 		// Perform additional things with the ribbon
 		ribbonIconEl.addClass('my-plugin-ribbon-class');
