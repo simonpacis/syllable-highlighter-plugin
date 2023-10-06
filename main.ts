@@ -48,10 +48,24 @@ export default class SyllableHighlighter extends Plugin {
 
 		// This adds a simple command that can be triggered anywhere
 		this.addCommand({
-			id: 'open-sample-modal-simple',
-			name: 'Open sample modal (simple)',
+			id: 'toggle-syllable-highlight',
+			name: 'Toggle Syllable Highlighting',
 			callback: () => {
-				new SampleModal(this.app).open();
+			new Notice('Enabling syllable highlighting...');
+			if(this.enabled)
+			{
+				this.enabled = false;
+			} else 
+			{
+				this.enabled = true;
+			}
+			const markdownView = this.app.workspace.getActiveViewOfType(MarkdownView);
+			const editorView = markdownView.editor.cm as EditorView;
+			const plugin = editorView.plugin(highlighterPlugin);
+			if(plugin)
+				{
+					plugin.setEnabled(this.enabled, editorView);
+				}
 			}
 		});
 		// This adds an editor command that can perform some operation on the current editor instance
