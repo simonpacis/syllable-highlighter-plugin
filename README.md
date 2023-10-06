@@ -2,7 +2,7 @@
 
 This is a plugin for Obsidian.
 
-When enabled, it highlights syllables of words using the following rules:
+When enabled, it highlights parts of words using the following rules:
 
 - If word has 1-2 syllables:
     - If word length is > 7: highlight first three letters
