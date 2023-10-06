@@ -7,7 +7,7 @@ When enabled, it highlights parts of words using the following rules:
 - If word has 1-2 syllables:
     - If word length is > 7: highlight first three letters
     - If word length is > 3 & < 7: highlight first two letters
-    - If word length is <= 3: highlight first one letter
+    - If word length is <= 3: highlight first letter
 - If word has 3 syllables or greater:
     - If word length is < 12: highlight first four letters
     - If word length is >= 12: highlight first five letters
