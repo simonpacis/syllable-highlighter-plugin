@@ -2,7 +2,7 @@
 
 This is a plugin for Obsidian.
 
-When enabled, it highlights parts of words using the following rules:
+When enabled, it highlights (by making bold) parts of words using the following rules:
 
 - If word has 1-2 syllables:
     - If word length is > 7: highlight first three letters
@@ -25,5 +25,5 @@ Disable it by clicking on it again.
 - Open Command Palette and run the command "BRAT: Add a beta plugin for testing"
 - Use the following link: https://github.com/simonpacis/syllable-highlighter-plugin
 - Click "Add Plugin"
-- Go to Community Plugins, refresh, and enable Syllable Highlighter 
+- Go to Community Plugins, refresh, and enable Syllable Highlightey 
 

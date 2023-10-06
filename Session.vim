@@ -571,12 +571,12 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 28 - ((27 * winheight(0) + 22) / 44)
+let s:l = 5 - ((4 * winheight(0) + 22) / 44)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 28
-normal! 067|
+keepjumps 5
+normal! 044|
 wincmd w
 argglobal
 if bufexists(fnamemodify("highlighterplugin.ts", ":p")) | buffer highlighterplugin.ts | else | edit highlighterplugin.ts | endif
@@ -707,11 +707,11 @@ setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 155 - ((24 * winheight(0) + 22) / 44)
+let s:l = 102 - ((40 * winheight(0) + 22) / 44)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 155
+keepjumps 102
 normal! 0
 wincmd w
 2wincmd w
